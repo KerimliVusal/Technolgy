@@ -11,7 +11,7 @@ import de2 from '../images/deliver2.webp'
 import de3 from '../images/deliveri3.webp'
 import de4 from '../images/deliveri4.webp'
 import { data } from "./data";
-import { BsHeart } from "react-icons/bs";
+import { BsHeart,BsFillHeartFill } from "react-icons/bs";
 import Carousel from 'react-bootstrap/Carousel';
 import pic from '../images/deals.png.webp'
 import Form from 'react-bootstrap/Form';
@@ -27,8 +27,11 @@ import { AnimationOnScroll } from 'react-animation-on-scroll';
 import "animate.css/animate.min.css";
 import {RxDoubleArrowUp} from 'react-icons/rx'
 import Footer from "./footer";
-
-const Home=()=>{
+import { cartType } from "../App";
+type Props={
+  like: (product: cartType) => void;
+}
+const Home: React.FC<Props>=({like})=>{
   window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -156,7 +159,7 @@ var x = setInterval(function() {
             <Row lg={4} className='ms-5 p-0' xs={1} sm={2}>
                 {
                     data.filter((products:any,index:number)=>index<8).map((product:any,index:number)=>(
-                        <Col className='shopcol' key={index}><div className='shop1'><img src={product.imgurl} width='90%' style={{backgroundPosition:'center center',backgroundSize:'cover',backgroundRepeat:'no-repeat'}}/><span className='shopnew'>new</span><span className='shopheart'><BsHeart></BsHeart></span><p className='shoptxt'><p style={{textAlign:'center'}}>{product.cost}$</p>{product.name}</p><span className='shopcolor'><input type='radio' className='shopcolor1'/><input type='radio' className='shopcolor2'/><input type='radio' className='shopcolor3'/></span><button className='shopbuton' >Add To Cart</button></div></Col>
+                        <Col className='shopcol' key={index}><div className='shop1'><img src={product.imgurl} width='90%' style={{backgroundPosition:'center center',backgroundSize:'cover',backgroundRepeat:'no-repeat'}}/><span className='shopnew'>new</span><span className='shopheart'><BsFillHeartFill className={`hart${product.id}`} onClick={()=>like(product)}></BsFillHeartFill></span><p className='shoptxt'><p style={{textAlign:'center'}}>{product.cost}$</p>{product.name}</p><span className='shopcolor'><input type='radio' className='shopcolor1'/><input type='radio' className='shopcolor2'/><input type='radio' className='shopcolor3'/></span><button className='shopbuton' >Add To Cart</button></div></Col>
                 ))
                 }
 
@@ -164,7 +167,7 @@ var x = setInterval(function() {
             </Col>
         </Row></AnimationOnScroll>
        <Row lg={1}>
-        <Popular/>
+        <Popular like={like}/>
        </Row>
        <button className='scroltop'  onClick={()=>topFunction()}><RxDoubleArrowUp></RxDoubleArrowUp></button>
     </Container>

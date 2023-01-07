@@ -10,7 +10,7 @@ import  Col  from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ban from '../images/ban11.webp'
 import { data } from './data';
-import { BsHeart } from 'react-icons/bs';
+import { BsHeart,BsFillHeartFill } from 'react-icons/bs';
 import phone from '../images/phon.webp'
 import tr1 from '../images/tre1.webp'
 import tr2 from '../images/tr2.webp'
@@ -20,8 +20,13 @@ import trend2 from '../images/tren2.webp'
 import trend3 from '../images/tren3.webp'
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import "animate.css/animate.min.css";
-
-const Popular=()=>{
+import { cartType } from '../App';
+import {useState} from 'react'
+type Prop={
+  like: (product: cartType) => void;
+}
+const Popular:React.FC<Prop>=({like})=>{
+  const[col,setCol]=useState<boolean>(false)
     const responsive = {
         superLargeDesktop: {
           // the naming can be any, depends on you.
@@ -67,13 +72,13 @@ const Popular=()=>{
             <Col lg={9}>
             <Row lg={5} className='ms-5 p-0' xs={1} sm={2}>
                 {
-                    data.filter((products:any,index:number)=>index<10).map((product:any,index:number)=>(
-                        <Col  className='shopcol' key={index}><div className='shop1'><img src={product.imgurl} width='70%' style={{backgroundPosition:'center center',backgroundRepeat:'no-repeat',backgroundSize:'cover'}}/><span className='shopnew'>new</span><span className='shopheart'><BsHeart></BsHeart></span><p className='shoptxt'><p style={{textAlign:'center'}}>{product.cost}$</p>{product.name}</p><span className='shopcolor'><input type='radio' className='shopcolor1'/><input type='radio' className='shopcolor2'/><input type='radio' className='shopcolor3'/></span><button className='shopbuton' >Add To Cart</button></div></Col>
+                    data.filter((products:any,index:number)=>index>9).map((product:any,index:number)=>(
+                        <Col  className='shopcol' key={index}><div className='shop1'><img src={product.imgurl} width='70%' style={{backgroundPosition:'center center',backgroundRepeat:'no-repeat',backgroundSize:'cover'}}/><span className='shopnew'>new</span><span className='shopheart'><BsFillHeartFill className={`hart${product.id}`} onClick={()=>like(product)}></BsFillHeartFill></span><p className='shoptxt'><p style={{textAlign:'center'}}>{product.cost}$</p>{product.name}</p><span className='shopcolor'><input type='radio' className='shopcolor1'/><input type='radio' className='shopcolor2'/><input type='radio' className='shopcolor3'/></span><button className='shopbuton' >Add To Cart</button></div></Col>
                 ))
                 }
         
             </Row></Col>
-            <Col lg={3} className='shopcol p-5' ><div className='shop1 p-1'><img src={phone} style={{backgroundPosition:'center center',backgroundRepeat:'no-repeat',backgroundSize:'cover'}}/><span className='shopnew'>new</span><span className='shopheart'><BsHeart></BsHeart></span><p className='shoptxt'><p>LUNA Smartphone $379</p></p><span className='shopcolor'><input type='radio' className='shopcolor1 mt-3'/><input type='radio' className='shopcolor2'/><input type='radio' className='shopcolor3'/></span><button className='shopbuton mt-5' >Add To Cart</button></div>
+            <Col lg={3} className='shopcol p-5' ><div className='shop1 p-1'><img src={phone} style={{backgroundPosition:'center center',backgroundRepeat:'no-repeat',backgroundSize:'cover'}}/><span className='shopnew'>new</span><span className='shopheart'><BsFillHeartFill onClick={()=>setCol(()=>!col)} className={col==true?'bck12':'bck13'}></BsFillHeartFill></span><p className='shoptxt'><p>LUNA Smartphone $379</p></p><span className='shopcolor'><input type='radio' className='shopcolor1 mt-3'/><input type='radio' className='shopcolor2'/><input type='radio' className='shopcolor3'/></span><button className='shopbuton mt-5' >Add To Cart</button></div>
             </Col></Row></AnimationOnScroll>
             
             <AnimationOnScroll animateIn="animate__bounceInUp">

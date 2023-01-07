@@ -73,21 +73,26 @@ function App() {
     // likref.current=liken.find(ite=>ite.id===liked.id)
 
           const isInCart = liken.find(item => item.id ===product.id);
-         
-          for(let i=0;i<20;i++){
-            if(isInCart){
-              if(product.id===liken[i].id){
-               const col=document.querySelector<HTMLElement>(`.hart${i}`)!.style.color='red';
-              setLiken([...liken])}
+          const col=document.querySelector<HTMLElement>(`.hart${product.id}`)!.style.color='red';
+             setLiken([...liken,product])
+             if(isInCart){
+              const col=document.querySelector<HTMLElement>(`.hart${product.id}`)!.style.color='#cecece';
+              setLiken([])
+             }
+          // for(let i=0;i<20;i++){
+          //   if(isInCart){
+          //     if(product.id===liken[i].id){
+          //      const col=document.querySelector<HTMLElement>(`.hart${i}`)!.style.color='red';
+          //     setLiken([...liken])}
 
-            } 
-            else{
-               const col=document.querySelector<HTMLElement>(`.hart${i}`)!.style.color='red';
-               return setLiken([...liken,product])
+          //   } 
+          //   else{
+          //     //  const col=document.querySelector<HTMLElement>(`.hart${i}`)!.style.color='red';
+          //      return setLiken([...liken,product])
 
-            }
+          // }  }
            
-          }
+          
          }
        
   useEffect(()=>{
@@ -97,12 +102,14 @@ function App() {
    },[])
   return (
     <div className="App">
+                
+
       {loa==true?<Loa/>
       :
         <div>
       <Navba cartitem={cartitem}/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Home like={like}/>}/>
         <Route path='/blog' element={<Blog/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/cart' element={<Cart cartitem={cartitem} addTocart={addTocart} removeFromcart={removeFromcart}/>}/>

@@ -106,7 +106,7 @@ const Shop: React.FC<Props>=({addTocart,like})=>{
                 {
                     data.sort(sortfilt(filt)
                     ).map((product:any,index:number)=>(
-                        <Col className='shopcol' key={index}><div className='shop1'><img src={product.imgurl} height='100px' /><span className='shopnew'>new</span><span className='shopheart'><BsFillHeartFill className={`hart${index}`} onClick={()=>like(product)}></BsFillHeartFill></span><p className='shoptxt'><p style={{textAlign:'center'}}>{product.cost}$</p>{product.name}</p><span className='shopcolor'><input type='radio' className='shopcolor1'/><input type='radio' className='shopcolor2'/><input type='radio' className='shopcolor3'/></span><button className='shopbuton' onClick={()=>addTocart(product)}>Add To Cart</button></div></Col>
+                        <Col className='shopcol' key={index}><div className='shop1'><img src={product.imgurl} height='100px' /><span className='shopnew'>new</span><span className='shopheart'><BsFillHeartFill className={`hart${product.id}`} onClick={()=>like(product)}></BsFillHeartFill></span><p className='shoptxt'><p style={{textAlign:'center'}}>{product.cost}$</p>{product.name}</p><span className='shopcolor'><input type='radio' className='shopcolor1'/><input type='radio' className='shopcolor2'/><input type='radio' className='shopcolor3'/></span><button className='shopbuton' onClick={()=>addTocart(product)}>Add To Cart</button></div></Col>
                 ))
                 }
 
