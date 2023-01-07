@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Technolgy/static/css/main.22795137.css",
-    "main.js": "/Technolgy/static/js/main.2965db99.js",
+    "main.css": "/Technolgy/static/css/main.4a4a0901.css",
+    "main.js": "/Technolgy/static/js/main.37023963.js",
     "static/js/787.605b2f16.chunk.js": "/Technolgy/static/js/787.605b2f16.chunk.js",
     "static/media/gif12.gif": "/Technolgy/static/media/gif12.6597f9205562c77eb088.gif",
     "static/media/single_blog_5.jpg.webp": "/Technolgy/static/media/single_blog_5.jpg.3e876fa080f1ffea14cd.webp",
@@ -61,12 +61,12 @@
     "static/media/sh14.webp": "/Technolgy/static/media/sh14.6c57b8237011c1acd0d7.webp",
     "static/media/pop2.webp": "/Technolgy/static/media/pop2.a6d42df6ead4526b572c.webp",
     "static/media/pop.webp": "/Technolgy/static/media/pop.498e5eebac13505f132f.webp",
-    "main.22795137.css.map": "/Technolgy/static/css/main.22795137.css.map",
-    "main.2965db99.js.map": "/Technolgy/static/js/main.2965db99.js.map",
+    "main.4a4a0901.css.map": "/Technolgy/static/css/main.4a4a0901.css.map",
+    "main.37023963.js.map": "/Technolgy/static/js/main.37023963.js.map",
     "787.605b2f16.chunk.js.map": "/Technolgy/static/js/787.605b2f16.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.22795137.css",
-    "static/js/main.2965db99.js"
+    "static/css/main.4a4a0901.css",
+    "static/js/main.37023963.js"
   ]
 }
